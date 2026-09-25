@@ -1,0 +1,164 @@
+// ==========================================================================
+// TARJETAS DE EJERCICIOS (LANDING ÍNDICE)
+// ==========================================================================
+@use '../abstracts/variables' as var;
+@use '../abstracts/mixins' as mx;
+
+.exercises-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  padding: 1rem 0 4rem;
+
+  @include mx.breakpoint(tablet) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include mx.breakpoint(desktop) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.exercise-card {
+  background: var.$color-bg-card;
+  border: 1px solid var.$color-border;
+  border-radius: var.$border-radius-lg;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.25rem;
+  box-shadow: var.$shadow-md;
+  transition: var.$transition-default;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var.$color-portal-green, var.$color-portal-cyan);
+    opacity: 0;
+    transition: var.$transition-default;
+  }
+
+  &:hover {
+    transform: translateY(-4px);
+    border-color: rgba(151, 206, 76, 0.4);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.5), var.$glow-portal;
+
+    &::before {
+      opacity: 1;
+    }
+
+    .exercise-card__action {
+      background: var.$color-portal-green;
+      color: var.$color-bg-deep;
+      transform: translateX(4px);
+    }
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  &__number {
+    font-family: var.$font-family-display;
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: var.$color-portal-green;
+    background: rgba(151, 206, 76, 0.12);
+    padding: 0.25rem 0.6rem;
+    border-radius: var.$border-radius-sm;
+    border: 1px solid rgba(151, 206, 76, 0.25);
+  }
+
+  &__tag {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var.$color-portal-cyan;
+    background: rgba(0, 181, 204, 0.12);
+    padding: 0.25rem 0.6rem;
+    border-radius: var.$border-radius-full;
+    border: 1px solid rgba(0, 181, 204, 0.25);
+  }
+
+  &__status {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.2rem 0.55rem;
+    border-radius: var.$border-radius-full;
+
+    &--ready {
+      background: rgba(85, 204, 68, 0.15);
+      color: var.$color-status-alive;
+      border: 1px solid rgba(85, 204, 68, 0.3);
+    }
+
+    &--pending {
+      background: rgba(158, 158, 158, 0.12);
+      color: var.$color-status-unknown;
+      border: 1px solid rgba(158, 158, 158, 0.25);
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  &__title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var.$color-text-primary;
+    line-height: 1.3;
+  }
+
+  &__desc {
+    font-size: 0.9rem;
+    color: var.$color-text-secondary;
+    line-height: 1.5;
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    border-top: 1px solid var.$color-border;
+    padding-top: 1rem;
+    margin-top: 0.5rem;
+  }
+
+  &__action {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.55rem 1.1rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border-radius: var.$border-radius-md;
+    background: #2b3245;
+    color: var.$color-text-primary;
+    text-decoration: none;
+    transition: var.$transition-default;
+
+    svg {
+      width: 16px;
+      height: 16px;
+      transition: transform 0.2s ease;
+    }
+
+    &:hover svg {
+      transform: translateX(3px);
+    }
+  }
+}

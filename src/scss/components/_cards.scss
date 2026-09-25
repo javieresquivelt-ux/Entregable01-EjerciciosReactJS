@@ -1,0 +1,212 @@
+// ==========================================================================
+// TARJETAS Y COMPONENTES VISUALES (SISTEMA OFICIAL)
+// ==========================================================================
+@use '../abstracts/variables' as var;
+
+// --------------------------------------------------------------------------
+// 1. Badges y Etiquetas
+// --------------------------------------------------------------------------
+.badge {
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: var.$border-radius-pill;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem 0.65rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  display: inline-flex;
+
+  &--dom {
+    color: var.$color-primary;
+    background-color: var.$color-primary-light;
+    border: 1px solid var.$color-primary-border;
+  }
+
+  &--events {
+    color: var.$color-cyan;
+    background-color: var.$color-cyan-bg;
+    border: 1px solid var.$color-cyan-border;
+  }
+
+  &--async {
+    color: var.$color-amber;
+    background-color: var.$color-amber-bg;
+    border: 1px solid var.$color-amber-border;
+  }
+
+  &--storage {
+    color: var.$color-emerald;
+    background-color: var.$color-emerald-bg;
+    border: 1px solid var.$color-emerald-border;
+  }
+
+  &--forms {
+    color: #6366f1;
+    background-color: #f5f3ff;
+    border: 1px solid #ddd6fe;
+  }
+}
+
+// --------------------------------------------------------------------------
+// 2. Tarjetas de Catálogo (Landing)
+// --------------------------------------------------------------------------
+.card {
+  background-color: var.$color-bg-surface;
+  border: 1px solid var.$color-border;
+  border-radius: var.$border-radius-md;
+  flex-direction: column;
+  padding: 1.75rem;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var.$shadow-card;
+
+  &__header {
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    display: flex;
+  }
+
+  &__number {
+    color: var.$color-primary;
+    background-color: var.$color-primary-light;
+    border: 1px solid var.$color-primary-border;
+    border-radius: var.$border-radius-pill;
+    padding: 0.25rem 0.6rem;
+    font-family: var.$font-family-mono;
+    font-size: 0.85rem;
+    font-weight: 700;
+  }
+
+  &__title {
+    color: var.$color-text-title;
+    margin-bottom: 0.75rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+    transition: color 0.2s;
+  }
+
+  &__description {
+    color: var.$color-text-body;
+    flex-grow: 1;
+    margin-bottom: 1.5rem;
+    font-size: 0.925rem;
+    line-height: 1.5;
+  }
+
+  &__footer {
+    border-top: 1px solid var.$color-border;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+    padding-top: 1rem;
+    display: flex;
+  }
+
+  &__action {
+    color: var.$color-text-muted;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.2s;
+    display: inline-flex;
+  }
+
+  &--interactive {
+    cursor: pointer;
+    text-decoration: none;
+
+    &:hover {
+      border-color: var.$color-primary-border;
+      transform: translateY(-4px);
+      box-shadow: var.$shadow-card-hover;
+
+      .card__action {
+        color: var.$color-primary;
+        transform: translateX(4px);
+      }
+    }
+  }
+}
+
+// --------------------------------------------------------------------------
+// 3. Tarjeta y Maquetación de Ejercicio Individual
+// --------------------------------------------------------------------------
+.exercise-layout {
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2.5rem 0 4rem;
+  display: flex;
+}
+
+.exercise-card {
+  background-color: var.$color-bg-surface;
+  border: 1px solid var.$color-border;
+  border-radius: var.$border-radius-md;
+  padding: 2rem;
+  box-shadow: var.$shadow-card;
+
+  &__header {
+    border-bottom: 1px solid var.$color-border;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.25rem;
+    display: flex;
+  }
+
+  &__title-group {
+    align-items: center;
+    gap: 1rem;
+    display: flex;
+  }
+
+  &__number {
+    color: var.$color-primary;
+    background-color: var.$color-primary-light;
+    border: 1px solid var.$color-primary-border;
+    border-radius: var.$border-radius-sm;
+    padding: 0.25rem 0.6rem;
+    font-family: var.$font-family-mono;
+    font-size: 0.85rem;
+    font-weight: 700;
+  }
+
+  &__title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var.$color-text-title;
+  }
+
+  &__objective {
+    color: var.$color-text-body;
+    background-color: var.$color-bg-subtle;
+    border-left: 3px solid var.$color-primary;
+    border-radius: 0 var.$border-radius-sm var.$border-radius-sm 0;
+    margin-bottom: 2rem;
+    padding: 0.85rem 1.25rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  &__workspace {
+    background-color: var.$color-bg-base;
+    border: 1px dashed var.$color-border-dashed;
+    border-radius: var.$border-radius-md;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 250px;
+    padding: 2rem;
+    display: flex;
+    position: relative;
+  }
+}

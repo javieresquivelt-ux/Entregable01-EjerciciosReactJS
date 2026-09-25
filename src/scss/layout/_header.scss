@@ -1,0 +1,120 @@
+// ==========================================================================
+// HEADER, NAVBAR Y HERO (SISTEMA OFICIAL)
+// ==========================================================================
+@use '../abstracts/variables' as var;
+
+.header {
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  z-index: 50;
+  background-color: rgba(255, 255, 255, 0.85);
+  border-bottom: 1px solid var.$color-border;
+  position: sticky;
+  top: 0;
+
+  &__content {
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    display: flex;
+  }
+
+  &__brand {
+    align-items: center;
+    gap: 0.75rem;
+    display: flex;
+  }
+
+  &__logo-badge {
+    color: #ffffff;
+    letter-spacing: 1px;
+    background-color: var.$color-primary;
+    border-radius: var.$border-radius-sm;
+    padding: 0.35rem 0.6rem;
+    font-family: var.$font-family-mono;
+    font-size: 0.85rem;
+    font-weight: 800;
+  }
+
+  &__title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var.$color-text-title;
+  }
+
+  &__meta {
+    align-items: center;
+    gap: 1rem;
+    display: flex;
+  }
+}
+
+.home-hero {
+  text-align: center;
+  padding: 3.5rem 0 2.5rem;
+
+  &__tag {
+    color: var.$color-primary;
+    background-color: var.$color-primary-alpha;
+    border: 1px solid rgba(79, 70, 229, 0.25);
+    border-radius: var.$border-radius-pill;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
+    padding: 0.35rem 0.85rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: inline-flex;
+  }
+
+  &__title {
+    margin-bottom: 1rem;
+    font-weight: 800;
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var.$color-text-title;
+  }
+
+  &__subtitle {
+    color: var.$color-text-body;
+    max-width: 650px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+}
+
+.exercises-section {
+  padding: 1rem 0 4rem;
+}
+
+.exercises-grid {
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  display: grid;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.footer {
+  text-align: center;
+  background-color: rgba(248, 250, 252, 0.9);
+  border-top: 1px solid var.$color-border;
+  margin-top: auto;
+  padding: 2rem 0;
+
+  &__text {
+    color: var.$color-text-muted;
+    font-size: 0.875rem;
+  }
+
+  &__highlight {
+    color: var.$color-text-body;
+    font-weight: 500;
+  }
+}
